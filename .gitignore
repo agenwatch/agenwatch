@@ -43,7 +43,6 @@ alembic/
 alembic.ini
 backend/
 frontend/
-docs/
 test/
 
 # Random scripts (not for GitHub)
@@ -53,8 +52,6 @@ test_groq_provider.py
 test_openai_provider.py
 quickstart_failure.txt
 quickstart_failure_2.txt
-requirements.txt
-setup.py
 
 # Images (optional, can remove if you want them)
 *.png
