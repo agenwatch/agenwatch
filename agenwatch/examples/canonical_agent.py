@@ -1,4 +1,4 @@
-"""
+﻿"""
 Canonical agenwatch Example
 
 This file demonstrates the *correct* and *minimal* way to use agenwatch.

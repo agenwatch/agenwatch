@@ -1,4 +1,4 @@
-# tests/test_step2_infinite_loop_protection.py
+﻿# tests/test_step2_infinite_loop_protection.py
 
 import pytest
 from agenwatch._kernel.agent import Agent

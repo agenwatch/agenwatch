@@ -1,4 +1,4 @@
-from agenwatch._kernel.llm_response import LLMResponse
+﻿from agenwatch._kernel.llm_response import LLMResponse
 class MockLLMProvider:
     """Flexible mock LLM provider that uses configured responses."""
     

@@ -1,4 +1,4 @@
-"""
+﻿"""
 AgenWatch SDK – Public API
 
 Anything not exported here is internal and unstable.

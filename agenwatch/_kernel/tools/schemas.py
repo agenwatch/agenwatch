@@ -1,4 +1,4 @@
-"""
+﻿"""
 AgenWatch Schema-Aware Repair System
 =====================================
 Tool schemas for intelligent validation and repair.

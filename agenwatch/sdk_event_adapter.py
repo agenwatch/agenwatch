@@ -1,4 +1,4 @@
-from agenwatch.types import StreamEvent
+﻿from agenwatch.types import StreamEvent
 
 def adapt_kernel_event(event_type: str, data: dict) -> StreamEvent:
     """

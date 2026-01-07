@@ -1,4 +1,4 @@
-"""
+﻿"""
 AgenWatch Example: AI Research Assistant
 Demonstrates real-world usage with budget control
 """

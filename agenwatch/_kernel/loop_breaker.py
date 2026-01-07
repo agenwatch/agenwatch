@@ -1,4 +1,4 @@
-"""
+﻿"""
 AgenWatch Loop Breaker
 =======================
 Detects and prevents infinite LLM reasoning loops.

@@ -1,4 +1,4 @@
-"""
+﻿"""
 LLM Provider Protocol (v0.1.x)
 SDK-level interface for pluggable LLM backends
 """

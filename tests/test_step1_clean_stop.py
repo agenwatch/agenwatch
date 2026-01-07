@@ -1,4 +1,4 @@
-import pytest
+﻿import pytest
 from agenwatch._kernel.agent import Agent
 from agenwatch._kernel.event_types import EventType
 from agenwatch._kernel.mock_provider import MockLLMProvider

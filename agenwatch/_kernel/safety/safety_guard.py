@@ -1,4 +1,4 @@
-"""
+﻿"""
 SafetyGuard - Tool Call Validation Layer
 =========================================
 Catches LLM hallucinations and invalid tool calls BEFORE execution.

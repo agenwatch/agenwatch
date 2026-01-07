@@ -1,4 +1,4 @@
-import json
+﻿import json
 from pathlib import Path
 import pytest
 from agenwatch._kernel.agent import Agent

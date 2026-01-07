@@ -1,4 +1,4 @@
-"""
+﻿"""
 Anthropic Claude Provider
 Official provider for Claude models via Anthropic API
 """

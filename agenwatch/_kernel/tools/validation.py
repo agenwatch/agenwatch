@@ -1,4 +1,4 @@
-"""
+﻿"""
 AgenWatch Tool Validation
 ===========================
 Validates tool arguments against JSON schemas.

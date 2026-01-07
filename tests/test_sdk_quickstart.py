@@ -1,4 +1,4 @@
-def test_sdk_quickstart_runs():
+﻿def test_sdk_quickstart_runs():
     from agenwatch import Agent, tool, AgentConfig
     from agenwatch.llm_provider import MockLLMProvider
 

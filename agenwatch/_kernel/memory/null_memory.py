@@ -1,4 +1,4 @@
-class NullMemorySystem:
+﻿class NullMemorySystem:
     async def recall(self, *args, **kwargs):
         return []
 

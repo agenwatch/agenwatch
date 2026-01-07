@@ -1,4 +1,4 @@
-from agenwatch import Agent, tool
+﻿from agenwatch import Agent, tool
 
 @tool("Echo input")
 def echo(text: str):

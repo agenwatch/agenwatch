@@ -1,4 +1,4 @@
-class CircuitBreaker:
+﻿class CircuitBreaker:
     """
     Minimal circuit breaker used by AgenWatch.
 

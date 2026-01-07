@@ -1,4 +1,4 @@
-from queue import Queue
+﻿from queue import Queue
 from agenwatch.sdk_event_adapter import adapt_kernel_event
 
 class SDKEventSink:

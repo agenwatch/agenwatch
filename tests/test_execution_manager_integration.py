@@ -1,4 +1,4 @@
-"""
+﻿"""
 Test ExecutionManager Integration
 Save as: tests/test_execution_manager_integration.py
 """

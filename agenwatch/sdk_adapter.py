@@ -1,4 +1,4 @@
-from agenwatch.types import ExecutionResult
+﻿from agenwatch.types import ExecutionResult
 
 
 def adapt_agent_result(kernel_result) -> ExecutionResult:

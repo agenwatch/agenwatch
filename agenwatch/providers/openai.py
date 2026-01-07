@@ -1,4 +1,4 @@
-"""
+﻿"""
 OpenAI Provider
 Official provider for GPT models via OpenAI API
 """

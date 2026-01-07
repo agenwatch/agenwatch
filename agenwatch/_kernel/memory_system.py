@@ -1,4 +1,4 @@
-"""
+﻿"""
 AgenWatch Memory System - CLEAN + COMPATIBLE WITH NEW MEMORY TYPES
 ===================================================================
 Memory types supported:

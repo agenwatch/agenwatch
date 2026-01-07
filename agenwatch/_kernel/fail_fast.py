@@ -1,4 +1,4 @@
-"""
+﻿"""
 Fail-Fast Rule Engine
 =====================
 Global circuit breaker for agent stability.

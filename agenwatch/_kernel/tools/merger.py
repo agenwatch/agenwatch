@@ -1,4 +1,4 @@
-"""
+﻿"""
 Tool Result Merger
 ==================
 Merges parallel tool outputs with:

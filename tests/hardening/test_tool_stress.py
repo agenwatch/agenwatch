@@ -1,4 +1,4 @@
-import asyncio
+﻿import asyncio
 import pytest
 
 from agenwatch._kernel.agent import Agent

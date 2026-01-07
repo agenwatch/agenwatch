@@ -1,4 +1,4 @@
-"""
+﻿"""
 Tool Execution Sandbox
 ======================
 Isolated, monitored execution environment for agent tools.

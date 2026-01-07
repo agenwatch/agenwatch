@@ -1,4 +1,4 @@
-"""Pytest configuration for async tests."""
+﻿"""Pytest configuration for async tests."""
 import pytest
 
 

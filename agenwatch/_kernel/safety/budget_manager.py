@@ -1,4 +1,4 @@
-"""
+﻿"""
 BudgetManager — Canonical Implementation
 =========================================
 

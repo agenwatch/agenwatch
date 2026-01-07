@@ -1,4 +1,4 @@
-# AgenWatch/retry_manager.py
+﻿# AgenWatch/retry_manager.py
 """
 AgenWatch Retry + Recovery Manager
 - Integrates with CircuitBreaker, SafetyGuard, RepairMemory, Timeline and SandboxExecutionResult.
