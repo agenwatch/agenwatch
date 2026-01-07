@@ -1,0 +1,5 @@
+# This file is used to define who owns what code
+# https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+
+# Automatically request review from @kashifsabri on all changes
+* @kashifsabri
