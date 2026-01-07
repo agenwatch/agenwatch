@@ -31,3 +31,8 @@ dependencies = [
 "Homepage" = "https://github.com/agenwatch/agenwatch"
 "Repository" = "https://github.com/agenwatch/agenwatch"
 "Bug Tracker" = "https://github.com/agenwatch/agenwatch/issues"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["agenwatch*"]
+exclude = ["tests*", "demos*", "backend*", "alembic*", "sdk_legacy_experiment*"]
