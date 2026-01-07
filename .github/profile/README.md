@@ -1,8 +1,8 @@
-# AgentWatch
+# AgenWatch
 
 **Deterministic, runtime-governed execution for AI agents.**
 
-AgentWatch provides a low-level execution kernel that enforces hard limits
+AgenWatch provides a low-level execution kernel that enforces hard limits
 (budget, iterations, time) **during execution**, not after failure.
 
 This answers a single production-critical question:
@@ -11,19 +11,19 @@ This answers a single production-critical question:
 
 ---
 
-## Why AgentWatch Exists
+## Why AgenWatch Exists
 
 Most agent frameworks focus on *reasoning quality* and *observability*.
-AgentWatch focuses on **governance**.
+AgenWatch focuses on **governance**.
 
-We built AgentWatch for teams who need:
+We built AgenWatch for teams who need:
 - Hard execution guarantees
 - Deterministic, replayable behavior
 - Protection against runaway agents in production
 
 ---
 
-## What Makes AgentWatch Different
+## What Makes AgenWatch Different
 
 - **Runtime-enforced guardrails**  
   Budget, iteration, and timeout limits are enforced synchronously by the kernel.
@@ -34,7 +34,7 @@ We built AgentWatch for teams who need:
 - **Kernel-first architecture**  
   Governance is not optional and cannot be bypassed from the SDK layer.
 
-AgentWatch is intentionally minimal.  
+AgenWatch is intentionally minimal.  
 It is designed to be a **foundation**, not a framework zoo.
 
 ---
@@ -56,7 +56,9 @@ It is designed to be a **foundation**, not a framework zoo.
 
 ## Philosophy
 
-AgentWatch is built for **production agents**, not demos.
+AgenWatch is built for **production agents**, not demos.
 
 If you need smarter agents, there are many tools.  
 If you need **governable agents**, this is where the conversation starts.
+
+

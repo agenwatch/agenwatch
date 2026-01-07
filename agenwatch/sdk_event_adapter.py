@@ -8,3 +8,5 @@ def adapt_kernel_event(event_type: str, data: dict) -> StreamEvent:
         type=event_type,
         payload=dict(data) if data else {},
     )
+
+

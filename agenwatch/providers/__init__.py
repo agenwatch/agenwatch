@@ -1,5 +1,5 @@
 """
-AgentWatch Official Providers
+AgenWatch Official Providers
 
 This module contains official LLM provider implementations.
 
@@ -23,3 +23,4 @@ __all__ = [
     "OpenAIProvider",
     "GroqProvider",
 ]
+

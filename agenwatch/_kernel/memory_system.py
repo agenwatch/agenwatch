@@ -576,3 +576,5 @@ class MemorySystem:
             print(f"⚠️ Load failed: {e}")
 
 __INTERNAL__ = True
+
+

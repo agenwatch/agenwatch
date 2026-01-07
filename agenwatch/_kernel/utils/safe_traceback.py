@@ -1,4 +1,4 @@
-﻿# AgenWatch/utils/safe_traceback.py
+# AgenWatch/utils/safe_traceback.py
 import traceback
 
 def safe_print_exc():
@@ -8,3 +8,5 @@ def safe_print_exc():
         pass
 
 __INTERNAL__ = True
+
+

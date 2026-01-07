@@ -1,4 +1,4 @@
-﻿import asyncio
+import asyncio
 import pytest
 from unittest.mock import patch
 from io import StringIO
@@ -44,7 +44,7 @@ class MockLLMTimeout:
 @pytest.mark.asyncio
 async def test_tool_timeout_is_enforced():
     """
-    PHASE 2.4 â€” Forced Timeout
+    PHASE 2.4 — Forced Timeout
 
     INVARIANT:
     - Tool exceeding timeout is aborted
@@ -70,4 +70,6 @@ async def test_tool_timeout_is_enforced():
     # Must terminate deterministically
     assert result.success is False
         
+
+
 

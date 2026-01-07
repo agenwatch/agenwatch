@@ -24,3 +24,5 @@ def test_sdk_quickstart_runs():
     assert result.success is True
     assert result.output is not None
     assert "sum" in str(result.output)
+
+

@@ -257,3 +257,5 @@ class LoopBreaker:
         return oscillating or self.loop_detected
 
 __INTERNAL__ = True
+
+

@@ -21,3 +21,5 @@ class EmbeddingService:
         return await asyncio.to_thread(self.embed_sync, text)
 
 __INTERNAL__ = True
+
+

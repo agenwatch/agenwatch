@@ -1,4 +1,4 @@
-﻿# example_app.py
+# example_app.py
 
 import asyncio
 import logging
@@ -24,11 +24,11 @@ class FakeDebugger:
         # Example: Auto-fix wrong input types
         corrected = dict(args)
 
-        # If "limit" must be int but user sends string â€” fix it
+        # If "limit" must be int but user sends string — fix it
         if "limit" in args and isinstance(args["limit"], str):
             corrected["limit"] = int(args["limit"])
 
-        # If "query" is missing â€” fill a default
+        # If "query" is missing — fill a default
         if "query" in tool_schema.get("required", []) and "query" not in args:
             corrected["query"] = "default"
 
@@ -86,7 +86,7 @@ async def main():
     print("RESULT:", result2)
 
     print("\n=== INVALID CALL MISSING REQUIRED FIELD ===")
-    # Missing "query" â€” debugger fills "default"
+    # Missing "query" — debugger fills "default"
     result3 = await client.call_tool("search", {"limit": 7})
     print("RESULT:", result3)
 
@@ -96,5 +96,7 @@ async def main():
 
 if __name__ == "__main__":
     asyncio.run(main())
+
+
 
 

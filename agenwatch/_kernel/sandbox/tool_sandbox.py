@@ -1,4 +1,4 @@
-﻿"""
+"""
 Tool Execution Sandbox
 ======================
 Isolated, monitored execution environment for agent tools.
@@ -489,3 +489,5 @@ class ToolSandbox:
         }
 
 __INTERNAL__ = True
+
+

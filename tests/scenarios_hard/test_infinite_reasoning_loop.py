@@ -1,4 +1,4 @@
-﻿import pytest
+import pytest
 from agenwatch._kernel.agent import Agent
 from agenwatch._kernel.mock_provider import MockLLMProvider
 
@@ -16,5 +16,7 @@ async def test_infinite_reasoning_stops():
 
     assert result.iterations == 3
     assert result.success is False
+
+
 
 

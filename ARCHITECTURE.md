@@ -1,16 +1,16 @@
-# AgentWatch Architecture
+# AgenWatch Architecture
 
-AgentWatch is built around a single core idea:
+AgenWatch is built around a single core idea:
 
 > **Agent execution must be governable at runtime, not merely observable after the fact.**
 
-This document describes the architectural decisions behind AgentWatch, the guarantees it provides, and the boundaries it intentionally enforces.
+This document describes the architectural decisions behind AgenWatch, the guarantees it provides, and the boundaries it intentionally enforces.
 
 ---
 
 ## Architectural Overview
 
-At its core, AgentWatch is a **bounded execution kernel** that sits between:
+At its core, AgenWatch is a **bounded execution kernel** that sits between:
 - the agent's reasoning loop, and
 - the external world (LLMs, tools, APIs).
 
@@ -40,9 +40,9 @@ The agent cannot bypass it.
 ## Deterministic Execution Model
 
 Most agent frameworks rely on implicit LLM memory and conversational drift.  
-AgentWatch does not.
+AgenWatch does not.
 
-AgentWatch enforces determinism through:
+AgenWatch enforces determinism through:
 
 - **Explicit execution steps**
 - **Recorded decisions**
@@ -63,7 +63,7 @@ This guarantees:
 
 ## Runtime-Enforced Guardrails (Key Distinction)
 
-Guardrails in AgentWatch are **synchronous and preventative**, not advisory.
+Guardrails in AgenWatch are **synchronous and preventative**, not advisory.
 
 ### How enforcement works
 
@@ -109,7 +109,7 @@ This provides a **mathematical guarantee of bounded cost**.
 
 ## Partial State & Failure Philosophy
 
-AgentWatch does **not** attempt automatic rollback of external side effects.
+AgenWatch does **not** attempt automatic rollback of external side effects.
 
 If a tool provisions a resource (e.g., creates a VPC) and execution halts before the next step:
 
@@ -124,7 +124,7 @@ Automatic rollback of arbitrary external systems is:
 - Domain-specific
 - Often unsafe
 
-AgentWatch's philosophy is:
+AgenWatch's philosophy is:
 
 > **Freeze and alert, not guess and undo.**
 
@@ -134,7 +134,7 @@ Rollback orchestration belongs in higher-level, domain-aware tooling — not the
 
 ## Kernel vs SDK Boundary
 
-AgentWatch strictly separates concerns.
+AgenWatch strictly separates concerns.
 
 ### Kernel (Internal, Unstable)
 - Execution loop
@@ -173,20 +173,20 @@ Observability exists to **explain what happened**, not to control what happens.
 
 ## Positioning
 
-AgentWatch is not an agent framework.
+AgenWatch is not an agent framework.
 
 It is a **runtime enforcement layer** that can sit underneath:
 - LangChain
 - CrewAI
 - Custom orchestration systems
 
-Think of AgentWatch as the **execution kernel**, not the application layer.
+Think of AgenWatch as the **execution kernel**, not the application layer.
 
 ---
 
 ## Non-Goals (By Design)
 
-AgentWatch does NOT aim to:
+AgenWatch does NOT aim to:
 - Provide domain-specific tools
 - Replace agent frameworks
 - Automatically compensate or rollback side effects
@@ -209,4 +209,6 @@ Those belong elsewhere.
 
 > *Agents fail in production not because they are dumb, but because they are ungoverned.*
 
-AgentWatch exists to make agent execution **bounded, inspectable, and enforceable**.
+AgenWatch exists to make agent execution **bounded, inspectable, and enforceable**.
+
+

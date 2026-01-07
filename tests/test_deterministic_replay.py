@@ -1,4 +1,4 @@
-﻿import json
+import json
 from pathlib import Path
 import pytest
 from agenwatch._kernel.agent import Agent
@@ -29,5 +29,7 @@ async def test_replay_has_no_side_effects(tmp_path):
 
     # Should not raise, should not execute anything
     await agent.run("hello")
+
+
 
 

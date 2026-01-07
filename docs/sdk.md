@@ -25,9 +25,9 @@ After applying these, the SDK doc is **production-ready**.
 # ✅ FINAL — `docs/sdk.md` (Corrected & Authoritative)
 
 ````markdown
-# AgentWatch SDK (v0.1.x)
+# AgenWatch SDK (v0.1.x)
 
-This document defines the **public, supported SDK surface** of AgentWatch.
+This document defines the **public, supported SDK surface** of AgenWatch.
 
 Anything **not documented here is internal**, unstable, and **not part of the public API contract**.
 
@@ -35,7 +35,7 @@ Anything **not documented here is internal**, unstable, and **not part of the pu
 
 ## 🎯 Purpose
 
-The AgentWatch SDK provides a **minimal, intentional interface** for building and running agents.
+The AgenWatch SDK provides a **minimal, intentional interface** for building and running agents.
 
 It deliberately hides:
 - Execution internals
@@ -292,4 +292,6 @@ This SDK is intentionally:
 It exposes **only what users need** and nothing more.
 
 > **Anything not documented here is internal and unstable.**
+
+
 

@@ -1,4 +1,4 @@
-﻿from typing import Any, Dict
+from typing import Any, Dict
 
 
 class BaseTool:
@@ -64,3 +64,5 @@ class BaseTool:
         }
 
 __INTERNAL__ = True
+
+

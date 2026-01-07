@@ -1,4 +1,4 @@
-﻿# AgenWatch/client.py
+# AgenWatch/client.py
 
 import logging
 import asyncio
@@ -193,7 +193,7 @@ class AgenWatchClient:
 
         logger.info("[AgenWatchClient] Calling tool '%s' (session=%s)", tool_name, session_id)
 
-        # STEP 1 â€” Validate (and trigger healing)
+        # STEP 1 — Validate (and trigger healing)
         valid, corrected_args = await self.validator.validate(
             tool_name=tool_name,
             args=args,
@@ -211,12 +211,12 @@ class AgenWatchClient:
 
         if was_corrected:
             logger.warning(
-                "[AgenWatchClient] Auto-correct applied: %s â†’ %s",
+                "[AgenWatchClient] Auto-correct applied: %s → %s",
                 original_args,
                 corrected_args,
             )
 
-        # STEP 2 â€” Execute
+        # STEP 2 — Execute
         result, meta = await self.executor.execute_tool(
             tool_name=tool_name,
             args=corrected_args,
@@ -274,5 +274,7 @@ class AgenWatchClient:
     def _check_active_session(self):
         if self.session_manager.current_session_id is None:
             raise RuntimeError("No active session. Call start_session() first.")
+
+
 
 

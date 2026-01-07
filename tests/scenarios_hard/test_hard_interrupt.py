@@ -1,4 +1,4 @@
-﻿import pytest
+import pytest
 import asyncio
 from agenwatch._kernel.agent import Agent
 from agenwatch._kernel.tools.registry import ToolRegistry
@@ -27,5 +27,7 @@ async def test_tool_cancelled_error():
         await agent.run("interrupt")
 
     assert calls == 1
+
+
 
 

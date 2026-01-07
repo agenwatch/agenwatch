@@ -1,4 +1,4 @@
-﻿from agenwatch import Agent, tool
+from agenwatch import Agent, tool
 
 @tool
 def echo(text: str) -> str:
@@ -9,5 +9,7 @@ agent = Agent(tools=[echo], max_iterations=2)
 result = agent.run("say hello using echo")
 
 print(result)
+
+
 
 

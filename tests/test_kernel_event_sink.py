@@ -48,3 +48,5 @@ async def test_event_sink_does_not_crash_execution():
     # Execution should still succeed even if sink crashes
     result = await agent.run("hello")
     assert result.success is True
+
+

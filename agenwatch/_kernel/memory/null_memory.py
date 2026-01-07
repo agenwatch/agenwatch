@@ -1,4 +1,4 @@
-﻿class NullMemorySystem:
+class NullMemorySystem:
     async def recall(self, *args, **kwargs):
         return []
 
@@ -6,3 +6,5 @@
         return None
 
 __INTERNAL__ = True
+
+

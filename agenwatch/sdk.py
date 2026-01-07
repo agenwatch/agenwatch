@@ -1,4 +1,4 @@
-﻿"""
+"""
 AgenWatch Public SDK
 Clean, stable, minimal surface API
 """
@@ -345,5 +345,7 @@ def _python_to_json_type(tp) -> str:
         dict: "object",
         list: "array",
     }.get(tp, "string")
+
+
 
 

@@ -1,4 +1,4 @@
-﻿"""
+"""
 Test ExecutionManager Integration
 Save as: tests/test_execution_manager_integration.py
 """
@@ -30,7 +30,7 @@ async def test_execution_manager_wired_correctly():
     assert agent.execution_manager.circuit_breaker is not None
     assert agent.execution_manager.fail_fast_engine is not None
     
-    print("âœ… ExecutionManager wired correctly")
+    print("✅ ExecutionManager wired correctly")
 
 
 @pytest.mark.asyncio
@@ -66,7 +66,7 @@ async def test_simple_tool_execution():
     
     # Verify tool was called
     assert call_count["count"] == 1, f"Expected 1 call, got {call_count['count']}"
-    print(f"âœ… Tool executed successfully, call_count={call_count['count']}")
+    print(f"✅ Tool executed successfully, call_count={call_count['count']}")
 
 
 @pytest.mark.asyncio
@@ -113,7 +113,7 @@ async def test_retry_with_recoverable_error():
     assert call_count["count"] == 3, f"Expected 3 calls, got {call_count['count']}"
     assert result.success, "Tool should eventually succeed"
     
-    print(f"âœ… Retry logic working correctly")
+    print(f"✅ Retry logic working correctly")
 
 
 if __name__ == "__main__":
@@ -130,6 +130,8 @@ if __name__ == "__main__":
     print("\nTest 3: Retry Logic")
     asyncio.run(test_retry_with_recoverable_error())
     
-    print("\nâœ… All tests passed!")
+    print("\n✅ All tests passed!")
+
+
 
 

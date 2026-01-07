@@ -1,4 +1,4 @@
-﻿"""
+"""
 AgenWatch Vector Store - Production Ready
 ===========================================
 Minimal, fast, and correct vector similarity search.
@@ -180,7 +180,7 @@ class SimpleVectorStore:
                     scored.append((sim, result))
             except ValueError as e:
                 # Log warning but continue (dimension mismatch, etc.)
-                print(f"âš ï¸  Skipping item due to error: {e}")
+                print(f"⚠️  Skipping item due to error: {e}")
                 continue
         
         # Sort by similarity (highest first)
@@ -258,7 +258,7 @@ if __name__ == "__main__":
     store = SimpleVectorStore()
     
     # Add items
-    print("\nâœ… Adding items...")
+    print("\n✅ Adding items...")
     store.add({
         "id": "mem_1",
         "content": "User prefers Python over JavaScript",
@@ -290,7 +290,7 @@ if __name__ == "__main__":
     print(f"   Stored {len(store)} items")
     
     # Search
-    print("\nâœ… Searching for similar items...")
+    print("\n✅ Searching for similar items...")
     query = [0.85, 0.15, 0.2]  # Similar to Python preference
     results = store.search(query, top_k=3, min_score=0.3)
     
@@ -299,7 +299,7 @@ if __name__ == "__main__":
         print(f"   {i}. [Score: {result['score']:.3f}] {result['content']}")
     
     # Search with filter
-    print("\nâœ… Searching with filter (alice only)...")
+    print("\n✅ Searching with filter (alice only)...")
     results = store.search(
         query,
         top_k=3,
@@ -308,12 +308,12 @@ if __name__ == "__main__":
     print(f"   Found {len(results)} results for alice")
     
     # Delete
-    print("\nâœ… Deleting item...")
+    print("\n✅ Deleting item...")
     deleted = store.delete("mem_4")
     print(f"   Deleted: {deleted}, New size: {len(store)}")
     
     # Edge cases
-    print("\nâœ… Testing edge cases...")
+    print("\n✅ Testing edge cases...")
     
     # Empty store search
     empty_store = SimpleVectorStore()
@@ -330,12 +330,14 @@ if __name__ == "__main__":
     # Dimension mismatch
     try:
         cosine_similarity([1.0, 2.0], [1.0, 2.0, 3.0])
-        print("   âŒ Should have raised ValueError!")
+        print("   ❌ Should have raised ValueError!")
     except ValueError as e:
-        print(f"   âœ… Caught dimension mismatch: {str(e)[:50]}...")
+        print(f"   ✅ Caught dimension mismatch: {str(e)[:50]}...")
     
     print("\n" + "=" * 60)
-    print("âœ… ALL TESTS PASSED")
+    print("✅ ALL TESTS PASSED")
     print("=" * 60)
 
 __INTERNAL__ = True
+
+

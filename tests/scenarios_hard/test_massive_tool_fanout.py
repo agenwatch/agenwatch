@@ -1,4 +1,4 @@
-﻿import pytest
+import pytest
 from agenwatch._kernel.agent import Agent
 from agenwatch._kernel.tools.registry import ToolRegistry
 from agenwatch._kernel.mock_provider import MockLLMProvider
@@ -29,5 +29,7 @@ async def test_massive_tool_fanout():
 
     assert calls == list(range(20))
     assert result.success is True
+
+
 
 

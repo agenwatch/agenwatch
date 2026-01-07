@@ -1,4 +1,4 @@
-﻿import logging
+import logging
 from agenwatch._kernel.tools.base import BaseTool
 from typing import Any, Dict
 
@@ -43,7 +43,7 @@ class CalculatorTool(BaseTool):
                 {}
             )
 
-            # If precision is supplied â†’ round result
+            # If precision is supplied → round result
             if precision is not None and isinstance(result, (int, float)):
                 result = round(result, precision)
 
@@ -53,3 +53,5 @@ class CalculatorTool(BaseTool):
             return {"error": str(e)}
 
 __INTERNAL__ = True
+
+

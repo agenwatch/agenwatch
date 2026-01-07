@@ -1,4 +1,4 @@
-﻿"""
+"""
 AgenWatch Tool Validation
 ===========================
 Validates tool arguments against JSON schemas.
@@ -63,3 +63,5 @@ class ToolValidator:
             return False, f"Validation error: {str(e)}"
 
 __INTERNAL__ = True
+
+

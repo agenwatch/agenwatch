@@ -1,4 +1,4 @@
-﻿import pytest
+import pytest
 from agenwatch._kernel.agent import Agent
 from agenwatch._kernel.tools.registry import ToolRegistry
 from agenwatch._kernel.mock_provider import MockLLMProvider
@@ -33,5 +33,7 @@ async def test_invalid_schema_then_recovery():
 
     assert calls == 2
     assert result.success is True
+
+
 
 

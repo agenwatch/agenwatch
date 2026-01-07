@@ -1,4 +1,4 @@
-﻿"""
+"""
 AgenWatch Example: AI Research Assistant
 Demonstrates real-world usage with budget control
 """
@@ -74,9 +74,9 @@ def save_to_file(filename: str, content: str) -> str:
     try:
         with open(filename, 'w') as f:
             f.write(content)
-        return f"âœ… Saved to {filename}"
+        return f"✅ Saved to {filename}"
     except Exception as e:
-        return f"âŒ Error saving file: {str(e)}"
+        return f"❌ Error saving file: {str(e)}"
 
 
 @tool("Search Wikipedia")
@@ -225,7 +225,7 @@ def example_3_budget_limit():
         print(result)
     except Exception as e:
         print()
-        print(f"âš ï¸  Agent stopped due to: {e}")
+        print(f"⚠️  Agent stopped due to: {e}")
         print()
         print("BUDGET STATUS:")
         import json
@@ -238,10 +238,10 @@ def example_3_budget_limit():
 
 if __name__ == "__main__":
     print()
-    print("â•”â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•—")
-    print("â•‘           AgenWatch - Research Assistant Demo                 â•‘")
-    print("â•‘  Demonstrating: Tools, Budget Control, Real Tasks             â•‘")
-    print("â•šâ•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•")
+    print("╔════════════════════════════════════════════════════════════════╗")
+    print("║           AgenWatch - Research Assistant Demo                 ║")
+    print("║  Demonstrating: Tools, Budget Control, Real Tasks             ║")
+    print("╚════════════════════════════════════════════════════════════════╝")
     print()
     
     # Run examples
@@ -253,17 +253,19 @@ if __name__ == "__main__":
     # example_3_budget_limit()
     
     print()
-    print("âœ… Demo complete!")
+    print("✅ Demo complete!")
     print()
-    print("ðŸ’¡ Key Features Demonstrated:")
+    print("💡 Key Features Demonstrated:")
     print("   - Simple @tool decorator")
     print("   - One-line agent creation")
     print("   - Automatic budget tracking")
     print("   - Clean, readable code")
     print()
-    print("ðŸ“š Next Steps:")
+    print("📚 Next Steps:")
     print("   - Try your own tools")
     print("   - Adjust budget limits")
     print("   - Enable execution recording")
     print("   - Use agent.replay() to debug")
+
+
 

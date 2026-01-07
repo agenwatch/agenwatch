@@ -1,4 +1,4 @@
-﻿import pytest
+import pytest
 from agenwatch._kernel.agent import Agent
 from agenwatch._kernel.mock_provider import MockLLMProvider
 from agenwatch._kernel.errors import RecoverableToolError
@@ -43,3 +43,5 @@ async def test_agent_retries_schema_valid_tool_and_succeeds():
 
     assert call_count["count"] == 3
     assert result.success is True
+
+

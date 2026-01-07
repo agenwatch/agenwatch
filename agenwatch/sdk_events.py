@@ -15,3 +15,5 @@ EventType = Literal[
 class StreamEvent:
     type: EventType
     payload: Any
+
+

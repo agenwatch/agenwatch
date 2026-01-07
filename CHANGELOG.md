@@ -12,3 +12,5 @@ All notable changes to this project will be documented in this file.
 - Provider support: OpenAI, Anthropic, Groq, LiteLLM (100+ providers)
 - Clean SDK API: `Agent`, `tool`, `AgentConfig`, `ExecutionResult`
 - Fingerprint-based deduplication (no double-charging on retries)
+
+

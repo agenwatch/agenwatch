@@ -11,3 +11,5 @@ class SDKEventSink:
 
     def next(self):
         return self.queue.get()
+
+

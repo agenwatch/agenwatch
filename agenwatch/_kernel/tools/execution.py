@@ -1,4 +1,4 @@
-﻿from agenwatch._kernel.sandbox.tool_sandbox import ToolSandbox
+from agenwatch._kernel.sandbox.tool_sandbox import ToolSandbox
 import asyncio
 import logging
 from typing import Any, Dict, Optional
@@ -103,13 +103,13 @@ class ToolExecutionEngine:
                 "fallback_used": retry_res.fallback_used
             }
 
-        # SUCCESS PATH â†’ reset breaker
+        # SUCCESS PATH → reset breaker
         self.circuit_breaker.reset_consecutive_failures()
 
         sandbox_out = retry_res.result
         result = sandbox_out
 
-        # Convert SandboxResult â†’ API format
+        # Convert SandboxResult → API format
         if not result.success:
             return {
                 "result": None,
@@ -131,3 +131,5 @@ class ToolExecutionEngine:
         }
 
 __INTERNAL__ = True
+
+

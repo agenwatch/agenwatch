@@ -1,4 +1,4 @@
-﻿# tests/test_step2_infinite_loop_protection.py
+# tests/test_step2_infinite_loop_protection.py
 
 import pytest
 from agenwatch._kernel.agent import Agent
@@ -12,7 +12,7 @@ pytestmark = pytest.mark.xfail(
 @pytest.mark.asyncio
 async def test_agent_detects_infinite_tool_loop_and_stops_early():
     """
-    STEP 2 — HARD LOOP TEST
+    STEP 2 � HARD LOOP TEST
     """
 
     async def echo_tool(**kwargs):
@@ -42,3 +42,5 @@ async def test_agent_detects_infinite_tool_loop_and_stops_early():
         (result.error_type and ("CIRCUIT_BREAKER" in result.error_type or "LOOP" in result.error_type or "GOVERNANCE" in result.error_type))
         or (result.terminal_reason and ("CIRCUIT_BREAKER" in result.terminal_reason or "LOOP" in result.terminal_reason or "GOVERNANCE" in result.terminal_reason))
     )
+
+

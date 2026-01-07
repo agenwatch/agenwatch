@@ -1,4 +1,4 @@
-﻿import os
+import os
 import asyncio
 from typing import List, Optional
 
@@ -66,3 +66,5 @@ class EmbeddingManager:
         return await self.fallback.embed_batch(texts)
 
 __INTERNAL__ = True
+
+

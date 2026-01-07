@@ -1,4 +1,4 @@
-﻿import json
+import json
 import re
 from typing import Dict, Any, Tuple, List, Optional
 from dataclasses import dataclass
@@ -255,7 +255,7 @@ if __name__ == "__main__":
     ]
     
     for tool_name, args in test_cases:
-        print(f"\nðŸ” Validating: {tool_name}({args})")
+        print(f"\n🔍 Validating: {tool_name}({args})")
         result = guard.validate_and_fix(tool_name, args)
         print(f"   Valid: {result.valid}")
         print(f"   Action: {result.action.value}")
@@ -267,3 +267,5 @@ if __name__ == "__main__":
             print(f"   Fixed args: {result.fixed_args}")
 
 __INTERNAL__ = True
+
+

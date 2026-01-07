@@ -1,11 +1,11 @@
-ï»¿"""
-BudgetManager â€” Canonical Implementation
+"""
+BudgetManager — Canonical Implementation
 =========================================
 
 Transaction ledger with a kill switch.
 
 MUST DO:
-- Enforce hard upper limit (spent > max â†’ STOP)
+- Enforce hard upper limit (spent > max ? STOP)
 - Track actual spend (charge AFTER execution)
 - Retry-safe via fingerprinting (no double charge)
 - Replay-safe (explicit is_replay check by caller)
@@ -28,7 +28,7 @@ from typing import Set, Dict, Any
 
 class BudgetExceededError(Exception):
     """
-    Budget exceeded â€” execution must stop.
+    Budget exceeded — execution must stop.
     
     This error is KERNEL-ONLY. Do NOT re-export to SDK.
     SDK sees `AgentResult.failure(error_type='budget_exceeded')`.
@@ -89,7 +89,7 @@ class BudgetManager:
     
     def check(self, cost: float) -> None:
         """
-        Pre-flight check â€” MUST be called BEFORE execution.
+        Pre-flight check — MUST be called BEFORE execution.
         
         Raises:
             BudgetExceededError: If spending `cost` would exceed budget.
@@ -105,7 +105,7 @@ class BudgetManager:
     
     def charge(self, cost: float, fingerprint: str) -> bool:
         """
-        Record cost â€” MUST be called AFTER successful execution.
+        Record cost — MUST be called AFTER successful execution.
         
         Args:
             cost: Actual cost of the execution.
@@ -121,7 +121,7 @@ class BudgetManager:
         """
         with self._lock:
             if fingerprint in self._charged_fingerprints:
-                # Already charged â€” idempotent no-op
+                # Already charged — idempotent no-op
                 return False
             
             self._charged_fingerprints.add(fingerprint)
@@ -155,3 +155,5 @@ class BudgetManager:
 
 
 __INTERNAL__ = True
+
+

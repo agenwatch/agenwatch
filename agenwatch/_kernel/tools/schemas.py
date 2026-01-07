@@ -1,4 +1,4 @@
-﻿"""
+"""
 AgenWatch Schema-Aware Repair System
 =====================================
 Tool schemas for intelligent validation and repair.
@@ -145,7 +145,7 @@ class SchemaRepairEngine:
 
         matched_fields = set()
 
-        # Phase 1 â€” map, cast, validate
+        # Phase 1 — map, cast, validate
         for input_key, value in raw_args.items():
             fs = schema.fuzzy_match_field(input_key)
 
@@ -180,7 +180,7 @@ class SchemaRepairEngine:
             else:
                 changes["removed"].append(input_key)
 
-        # Phase 2 â€” fill defaults
+        # Phase 2 — fill defaults
         for fname, fs in schema.fields.items():
             if fname not in matched_fields:
                 if fs.default is not None:
@@ -381,3 +381,5 @@ def get_default_schema_engine() -> SchemaRepairEngine:
     return SchemaRepairEngine(DEFAULT_SCHEMAS)
 
 __INTERNAL__ = True
+
+

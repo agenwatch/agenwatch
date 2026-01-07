@@ -146,3 +146,4 @@ class OpenAIProvider:
     def model_name(self) -> str:
         """Return model identifier"""
         return self.model
+

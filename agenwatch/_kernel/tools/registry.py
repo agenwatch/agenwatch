@@ -1,4 +1,4 @@
-﻿import logging
+import logging
 import threading
 from typing import Dict, Optional, List, Any
 
@@ -38,32 +38,32 @@ logger = logging.getLogger("agenwatch.tools")
 
 class ToolRegistry:
     """
-    AgenWatch OS â€” Production-Grade Tool Registry.
+    AgenWatch OS — Production-Grade Tool Registry.
 
     Responsibilities:
     ---------------------------------------
-    âœ” Register tools
-    âœ” Register schemas
-    âœ” Enforce uniqueness
-    âœ” Provide LLM tool specs
-    âœ” Provide schema repair engine
-    âœ” Sync schemas + tools
-    âœ” Thread-safe operations
-    âœ” SDK-ready architecture
+    ✔ Register tools
+    ✔ Register schemas
+    ✔ Enforce uniqueness
+    ✔ Provide LLM tool specs
+    ✔ Provide schema repair engine
+    ✔ Sync schemas + tools
+    ✔ Thread-safe operations
+    ✔ SDK-ready architecture
     """
 
     _instance = None
     _lock = threading.RLock()
 
     def __new__(cls):
-        # Singleton pattern â€” one registry for the entire runtime
+        # Singleton pattern — one registry for the entire runtime
         with cls._lock:
             if cls._instance is None:
                 cls._instance = super().__new__(cls)
         return cls._instance
 
     def __init__(self):
-        # ðŸ”’ Instance-level lock (THIS is what I broke earlier)
+        # 🔒 Instance-level lock (THIS is what I broke earlier)
         self._lock = threading.RLock()
 
         # Tool + schema storage
@@ -78,7 +78,7 @@ class ToolRegistry:
         self.schema_engine = SchemaRepairEngine(self.schemas)
 
         logger.info(
-            "[ToolRegistry] Initialized â€” %d built-in schemas loaded",
+            "[ToolRegistry] Initialized — %d built-in schemas loaded",
             len(self.schemas),
         )
 
@@ -102,7 +102,7 @@ class ToolRegistry:
             # Warn if tool has no schema
             if tool.name not in self.schemas:
                 logger.warning(
-                    "[ToolRegistry] Tool '%s' has no schema â€” schema repair disabled",
+                    "[ToolRegistry] Tool '%s' has no schema — schema repair disabled",
                     tool.name,
                 )
 
@@ -137,7 +137,7 @@ class ToolRegistry:
         return self.schema_engine
 
     # --------------------------------------------------------
-    # LLM SPECS (CONVERT TOOL â†’ OPENAI FORMAT)
+    # LLM SPECS (CONVERT TOOL → OPENAI FORMAT)
     # --------------------------------------------------------
 
     def list_llm_specs(self) -> List[Dict[str, Any]]:
@@ -208,3 +208,5 @@ class ToolRegistry:
         return schemas
 
 __INTERNAL__ = True
+
+

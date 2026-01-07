@@ -1,4 +1,4 @@
-﻿"""
+"""
 Tool Result Merger
 ==================
 Merges parallel tool outputs with:
@@ -382,3 +382,5 @@ def merge_with_conflicts(
     return merge_result.merged, merge_result.conflicts
 
 __INTERNAL__ = True
+
+

@@ -15,3 +15,5 @@ def adapt_agent_result(kernel_result) -> ExecutionResult:
         cost=getattr(kernel_result, "cost", 0.0),
     )
 
+
+

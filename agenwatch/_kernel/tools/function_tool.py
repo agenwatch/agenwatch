@@ -1,4 +1,4 @@
-﻿from typing import Callable, Any, Dict
+from typing import Callable, Any, Dict
 
 
 class FunctionTool:
@@ -19,3 +19,5 @@ class FunctionTool:
         return result
 
 __INTERNAL__ = True
+
+

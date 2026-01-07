@@ -1,4 +1,4 @@
-﻿import pytest
+import pytest
 from agenwatch._kernel.agent import Agent
 from agenwatch._kernel.tools.registry import ToolRegistry
 from agenwatch._kernel.mock_provider import MockLLMProvider
@@ -30,5 +30,7 @@ async def test_invalid_tool_arguments():
 
     assert executed is False
     assert result.success is False
+
+
 
 

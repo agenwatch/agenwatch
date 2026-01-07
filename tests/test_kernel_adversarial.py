@@ -1,4 +1,4 @@
-﻿import asyncio
+import asyncio
 import pytest
 
 from agenwatch._kernel.agent import Agent
@@ -136,5 +136,7 @@ async def test_infinite_reasoning_loop_stops():
     result = await agent.run("think")
 
     assert result["success"] is False
+
+
 
 

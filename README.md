@@ -99,7 +99,7 @@ AgenWatch enforces budgets as a runtime kill switch, not a warning.
 
 This is enforced inside the kernel, not in user code.
 
-> Note: AgentWatch enforces limits at runtime. If a limit is exceeded, execution is terminated immediately.
+> Note: AgenWatch enforces limits at runtime. If a limit is exceeded, execution is terminated immediately.
 
 ---
 
@@ -148,9 +148,9 @@ It is not designed for:
 
 ---
 
-## When Should You Use AgentWatch?
+## When Should You Use AgenWatch?
 
-Use AgentWatch if you need **hard execution guarantees** for AI agents.
+Use AgenWatch if you need **hard execution guarantees** for AI agents.
 
 Typical use cases include:
 - Preventing runaway tool or LLM calls
@@ -158,19 +158,19 @@ Typical use cases include:
 - Debugging failures with deterministic replay
 - Running agents in cost- or safety-sensitive environments
 
-AgentWatch is designed for engineers who care about **governance and correctness**
+AgenWatch is designed for engineers who care about **governance and correctness**
 as much as model quality.
 
 ---
 
-## When NOT to Use AgentWatch
+## When NOT to Use AgenWatch
 
-AgentWatch may not be the right fit if:
+AgenWatch may not be the right fit if:
 - You only need observability or tracing after execution
 - You want rapid prototyping without hard limits
 - You are looking for a high-level agent framework with many abstractions
 
-AgentWatch intentionally trades flexibility for **predictability and control**.
+AgenWatch intentionally trades flexibility for **predictability and control**.
 
 ---
 
@@ -198,3 +198,5 @@ AgenWatch can act as a runtime enforcement layer beneath other frameworks.
 ## License
 
 MIT License
+
+

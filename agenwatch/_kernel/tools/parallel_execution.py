@@ -1,4 +1,4 @@
-﻿"""
+"""
 AgenWatch Parallel Tool Execution Engine
 ==========================================
 Runs multiple tools in parallel with:
@@ -157,7 +157,7 @@ class ParallelToolExecutionEngine:
 
 
     # =====================================================================
-    # 1ï¸âƒ£ RESULT MERGING
+    # 1️⃣ RESULT MERGING
     # =====================================================================
 
 
@@ -179,7 +179,7 @@ class ParallelToolExecutionEngine:
             MergeResult (from merger.py)
         """
 
-        # Convert ToolExecutionResult â†’ plain dict expected by merger
+        # Convert ToolExecutionResult → plain dict expected by merger
         indiv = {}
 
         for tool_name, r in results.items():
@@ -215,7 +215,7 @@ class ParallelToolExecutionEngine:
 
 
     # =====================================================================
-    # 2ï¸âƒ£ FAIL-FAST MODE
+    # 2️⃣ FAIL-FAST MODE
     # =====================================================================
     async def execute_fail_fast(
         self,
@@ -238,7 +238,7 @@ class ParallelToolExecutionEngine:
         # Create async tasks (SANDBOX)
         tasks = {
             name: asyncio.create_task(
-                self._execute_tool(name, args)   # <â€” sandbox-powered
+                self._execute_tool(name, args)   # <— sandbox-powered
             )
             for name, args in calls.items()
         }
@@ -264,7 +264,7 @@ class ParallelToolExecutionEngine:
 
 
     # =====================================================================
-    # 3ï¸âƒ£ DAG PLANNER
+    # 3️⃣ DAG PLANNER
     # =====================================================================
     def _build_dag(
         self,
@@ -650,3 +650,5 @@ class ParallelToolExecutionEngine:
             self.failure_counts.clear()
 
 __INTERNAL__ = True
+
+

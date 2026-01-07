@@ -1,4 +1,4 @@
-﻿import pytest
+import pytest
 
 from agenwatch import Agent, tool
 from agenwatch.llm_provider import MockLLMProvider
@@ -60,3 +60,5 @@ def test_kernel_is_private():
 
     # Kernel modules must carry an internal marker
     assert getattr(em, "__INTERNAL__", False) is True
+
+

@@ -25,3 +25,5 @@ class ExecutionResult:
 class StreamEvent:
     type: str                 # "session_start", "llm_call", "tool_call", "done"
     payload: Dict[str, Any]   # normalized data
+
+

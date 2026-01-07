@@ -1,4 +1,4 @@
-﻿import logging
+import logging
 from typing import Any, Dict
 from agenwatch._kernel.tools.base import BaseTool
 
@@ -61,3 +61,5 @@ class WebSearchTool(BaseTool):
         }
 
 __INTERNAL__ = True
+
+

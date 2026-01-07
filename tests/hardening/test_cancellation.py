@@ -1,4 +1,4 @@
-﻿import asyncio
+import asyncio
 import pytest
 from unittest.mock import patch
 from io import StringIO
@@ -38,7 +38,7 @@ class MockLLMCancel:
 @pytest.mark.asyncio
 async def test_agent_cancellation_mid_tool():
     """
-    PHASE 2.3 â€” Cancellation
+    PHASE 2.3 — Cancellation
 
     INVARIANT:
     - Cancelling agent.run() must:
@@ -73,7 +73,9 @@ async def test_agent_cancellation_mid_tool():
         except asyncio.CancelledError:
             pass
 
-    # If we reach here without crash â†’ PASS
+    # If we reach here without crash → PASS
     assert True
+
+
 
 

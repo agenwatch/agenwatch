@@ -84,3 +84,5 @@ async def test_sync_provider_raises_error():
     assert result.success is False
     # The kernel catches the TypeError and returns an error result
     assert result.error == "AGENT_ERROR"
+
+

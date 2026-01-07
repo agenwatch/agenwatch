@@ -1,4 +1,4 @@
-﻿class CircuitBreaker:
+class CircuitBreaker:
     """
     Minimal circuit breaker used by AgenWatch.
 
@@ -24,7 +24,7 @@
         Returns (should_stop, reason).
         """
 
-        # ðŸ”‘ DO NOT COUNT TOOL_REPAIR AS FAILURE
+        # 🔑 DO NOT COUNT TOOL_REPAIR AS FAILURE
         if error == "TOOL_REPAIR":
             return False, None
 
@@ -62,3 +62,5 @@
         }
 
 __INTERNAL__ = True
+
+
