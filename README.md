@@ -8,6 +8,8 @@ Budgets, iteration limits, and execution boundaries are enforced **during runtim
 This is not an observability tool.
 This is an execution kernel.
 
+> **Deep Dive:** See [ARCHITECTURE.md](ARCHITECTURE.md) for design philosophy and guarantees.
+
 ---
 
 ## Why AgenWatch Exists
