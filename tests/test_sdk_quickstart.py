@@ -26,3 +26,4 @@ def test_sdk_quickstart_runs():
     assert "sum" in str(result.output)
 
 
+

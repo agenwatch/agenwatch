@@ -4,9 +4,10 @@
 
 If you discover a security issue in AgenWatch, please report it privately.
 
-- **Email**: security@agenwatch.com
+- **Email**: agenwatch.dev@gmail.com
 - **Do not** open public GitHub issues for security vulnerabilities.
 
 We will respond as quickly as possible to address any valid security concerns.
+
 
 

@@ -50,3 +50,4 @@ async def test_event_sink_does_not_crash_execution():
     assert result.success is True
 
 
+

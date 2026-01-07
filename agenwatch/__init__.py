@@ -1,5 +1,5 @@
 """
-AgenWatch SDK – Public API
+AgenWatch SDK â€“ Public API
 
 Anything not exported here is internal and unstable.
 """
@@ -13,5 +13,6 @@ __all__ = [
     "AgentConfig",
     "ExecutionResult",
 ]
+
 
 
