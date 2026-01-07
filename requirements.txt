@@ -6,3 +6,4 @@ tiktoken
 groq
 openai
 pytest
+pytest-asyncio
