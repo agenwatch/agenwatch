@@ -1,0 +1,60 @@
+# Build artifacts
+dist/
+build/
+*.egg-info/
+agenwatch-0.1.0/
+
+# Python caches
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+
+# Virtual environments
+.venv/
+venv/
+env/
+test_install/
+
+# Environment files
+.env
+*.env
+
+# IDE settings
+.vscode/
+.idea/
+
+# Database files
+*.db
+*.sqlite3
+
+# Logs
+*.log
+
+# Data files (not for GitHub)
+*.json
+memories.json
+agentwatch_memory.json
+test_memory.json
+
+# Legacy/experimental (not for GitHub)
+sdk_legacy_experiment/
+alembic/
+alembic.ini
+backend/
+frontend/
+docs/
+test/
+
+# Random scripts (not for GitHub)
+check_groq_models.py
+test_env.py
+test_groq_provider.py
+test_openai_provider.py
+quickstart_failure.txt
+quickstart_failure_2.txt
+requirements.txt
+setup.py
+
+# Images (optional, can remove if you want them)
+*.png

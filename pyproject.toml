@@ -1,0 +1,73 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "agenwatch"
+version = "0.1.0"
+description = "Deterministic agent execution with runtime-enforced guardrails"
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.10"
+
+authors = [
+    { name = "AgenWatch Team", email = "agenwatch.dev@gmail.com" }
+]
+
+keywords = [
+    "llm",
+    "agents",
+    "ai-agents",
+    "python",
+    "sdk",
+    "runtime",
+    "governance",
+    "observability"
+]
+
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Operating System :: OS Independent",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+
+dependencies = [
+    "pydantic>=2.0.0",
+]
+
+[project.optional-dependencies]
+openai = [
+    "openai>=1.0.0",
+    "tiktoken",
+]
+anthropic = ["anthropic>=0.18.0"]
+groq = ["groq>=0.4.0"]
+litellm = ["litellm>=1.0.0"]
+all = [
+    "openai>=1.0.0",
+    "tiktoken",
+    "anthropic>=0.18.0",
+    "groq>=0.4.0",
+    "litellm>=1.0.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/agenwatch/agenwatch"
+Repository = "https://github.com/agenwatch/agenwatch"
+Issues = "https://github.com/agenwatch/agenwatch/issues"
+
+[tool.setuptools.packages.find]
+include = ["agenwatch*"]
+exclude = [
+    "tests*",
+    "backend*",
+    "frontend*",
+    "sdk_legacy_experiment*",
+]
