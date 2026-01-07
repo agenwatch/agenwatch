@@ -5,3 +5,4 @@ psutil
 tiktoken
 groq
 openai
+pytest
