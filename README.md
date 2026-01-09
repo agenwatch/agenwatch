@@ -56,6 +56,7 @@ It makes them **governable**.
 ```bash
 pip install agenwatch
 
+```
 ---
 
 ## AgenWatch-Only Example (Correct & Working)
