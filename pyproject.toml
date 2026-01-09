@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "agenwatch"
-version = "0.1.0"
+version = "0.1.1"
 description = "Runtime-enforced governance kernel for AI agents"
 readme = "README.md"
 authors = [{ name = "Kashif Sabri", email = "agenwatch.dev@gmail.com" }]
