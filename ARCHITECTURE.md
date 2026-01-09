@@ -1,34 +1,38 @@
 # AgenWatch Architecture
 
-AgenWatch is built around a single core idea:
+AgenWatch is built on a single, non-negotiable principle:
 
-> **Agent execution must be governable at runtime, not merely observable after the fact.**
+> **Agent execution must be governed at runtime, not merely observed after failure.**
 
-This document describes the architectural decisions behind AgenWatch, the guarantees it provides, and the boundaries it intentionally enforces.
+This document explains how AgenWatch enforces that principle, what guarantees it provides, and—equally important—what it intentionally does *not* attempt to solve.
 
 ---
 
-## Architectural Overview
+## 1. Architectural Role
 
-At its core, AgenWatch is a **bounded execution kernel** that sits between:
-- the agent's reasoning loop, and
+AgenWatch is a **runtime execution kernel** for AI agents.
+
+It sits **between**:
+- the agent’s reasoning loop, and
 - the external world (LLMs, tools, APIs).
 
-All execution flows through this kernel.
-
-Nothing executes unless the kernel allows it.
+All execution passes through this kernel.  
+Nothing executes unless the kernel explicitly allows it.
 
 ```
-Agent (SDK)
-    |
-    v
-Execution Kernel
-    ├── Budget Manager
-    ├── Iteration Controller
-    ├── Retry & Idempotency Layer
-    ├── Event Sink (Streaming / Audit)
-    |
-    v
+User / Framework Logic
+         |
+         v
+  Agent (SDK surface)
+         |
+         v
+AgenWatch Execution Kernel
+  ├─ Budget Manager
+  ├─ Iteration Controller
+  ├─ Retry & Idempotency Layer
+  ├─ Event & Audit Sink
+         |
+         v
 LLMs / Tools / External APIs
 ```
 
@@ -37,9 +41,10 @@ The agent cannot bypass it.
 
 ---
 
-## Deterministic Execution Model
+## 2. Deterministic Execution Model
 
-Most agent frameworks rely on implicit LLM memory and conversational drift.  
+Most agent frameworks rely on conversational context and LLM memory, which naturally drift over time.
+
 AgenWatch does not.
 
 AgenWatch enforces determinism through:
@@ -48,168 +53,198 @@ AgenWatch enforces determinism through:
 - **Recorded decisions**
 - **Monotonic state transitions**
 
-Once a step completes successfully, it is recorded and cannot be "hallucinated away" by later reasoning.
+Once a step completes, its outcome is recorded and becomes immutable for that execution.
 
-Replay does not re-invoke LLMs or tools.  
-It replays recorded outcomes.
+An agent cannot:
+- “forget” a previous step
+- reason its way backward
+- retroactively alter history
 
-This guarantees:
+### Deterministic Replay (v0.1)
 
-- Same inputs → same execution path
-- Reproducible debugging
-- No hidden side effects during replay
+Replay in AgenWatch is **non-executing**:
+
+- LLMs are not re-called
+- Tools are not re-invoked
+- Recorded outcomes are replayed for inspection
+
+This enables:
+- reproducible debugging
+- post-mortem analysis
+- exact reconstruction of failure states
+
+Replay is **read-only** in v0.1.
 
 ---
 
-## Runtime-Enforced Guardrails (Key Distinction)
+## 3. Runtime-Enforced Guardrails (Core Differentiator)
 
 Guardrails in AgenWatch are **synchronous and preventative**, not advisory.
 
-### How enforcement works
+They are enforced **before execution**, not after failure.
 
-Before *every* tool call or LLM invocation:
+### Enforcement Flow
 
-1. The kernel performs a **pre-flight check**:
-   - Budget remaining
-   - Iteration limit
-   - Timeout window
-   - Circuit state
+Before *every* LLM call or tool invocation:
+
+1. The kernel performs a **pre-execution check**:
+   - remaining budget
+   - iteration count
+   - timeout window
+   - circuit state
 
 2. If any guardrail would be violated:
-   - Execution is **terminated immediately**
-   - The call never reaches the external API
+   - execution is terminated immediately
+   - the call never reaches the external system
 
-There is no "best effort" execution.
-There is no post-hoc rollback pretending the call didn't happen.
+There is:
+- no “best effort” execution
+- no warning-only mode
+- no post-hoc rollback pretending the call didn’t happen
 
-If the kernel says no, the call does not occur.
+If the kernel denies the call, **the call does not occur**.
 
 ---
 
-## Budget Manager (v0.1)
+## 4. Budget Manager & Bounded Overrun (v0.1)
 
-The budget system is implemented as a **monotonic ledger with a hard kill switch**.
+Budget enforcement in AgenWatch is implemented as a **monotonic execution ledger** with a hard stop.
 
-Properties:
+### Properties
 
-- Charges occur **after successful execution**
-- Charging is **idempotent** via operation fingerprinting
-- Retries do not double-charge
-- Replays do not charge
+- Costs are charged **after successful execution**
+- Charging is **atomic and idempotent**
+- Retries do **not** double-charge
+- Replay does **not** charge
 - No refunds in v0.1
 
-When the budget is exhausted:
-- Execution halts
-- A terminal `budget_exceeded` state is returned
-- No further calls are possible
+### Bounded Overrun Guarantee
 
-This provides a **mathematical guarantee of bounded cost**.
+Exact token cost is unknown until an LLM finishes responding.  
+AgenWatch addresses this with a **bounded overrun policy**:
+
+- The kernel blocks calls *between* steps
+- At most **one in-flight call** can exceed the remaining budget
+- Once charged, execution halts deterministically
+
+This guarantees:
+- no runaway loops
+- no unbounded cost escalation
+- mathematically bounded spending
 
 ---
 
-## Partial State & Failure Philosophy
+## 5. Partial State & Failure Philosophy
 
 AgenWatch does **not** attempt automatic rollback of external side effects.
 
-If a tool provisions a resource (e.g., creates a VPC) and execution halts before the next step:
+If an execution halts midway through a multi-step task:
 
-- The system **freezes**
-- The final state is recorded deterministically
-- The execution is surfaced for inspection
+- the final state is frozen
+- the execution outcome is recorded deterministically
+- the system surfaces the halted state for inspection
 
 This is intentional.
 
 Automatic rollback of arbitrary external systems is:
-- Non-deterministic
-- Domain-specific
-- Often unsafe
+- domain-specific
+- non-deterministic
+- often unsafe
 
-AgenWatch's philosophy is:
+AgenWatch’s philosophy is:
 
-> **Freeze and alert, not guess and undo.**
+> **Freeze and alert — do not guess and undo.**
 
-Rollback orchestration belongs in higher-level, domain-aware tooling — not the kernel.
+Rollback orchestration belongs in higher-level, domain-aware systems.
 
 ---
 
-## Kernel vs SDK Boundary
+## 6. Kernel vs SDK Boundary
 
-AgenWatch strictly separates concerns.
+AgenWatch enforces a strict separation of concerns.
 
 ### Kernel (Internal, Unstable)
-- Execution loop
-- Budget enforcement
-- Retry logic
-- Circuit breakers
-- Deterministic replay machinery
+- execution loop
+- budget enforcement
+- retry and idempotency logic
+- circuit breakers
+- deterministic replay machinery
 
 ### SDK (Public, Stable)
 - `Agent`
 - `@tool`
 - `ExecutionResult`
-- Streaming interface
+- streaming interface
 - LLM provider adapters
 
-The kernel is not exposed.
+The kernel is not exposed.  
 Users cannot bypass or modify enforcement logic.
 
-This boundary is enforced in code and packaging.
+This boundary is enforced in code, packaging, and public exports.
 
 ---
 
-## Streaming & Observability
+## 7. Streaming & Inspection
 
-Streaming events are emitted **as a side-channel**.
+AgenWatch emits execution events as a **side-channel**.
 
-Important properties:
-- Streaming does not affect execution
-- Consumers can disconnect safely
-- Event order is guaranteed
-- Event payloads are informational, not authoritative
+Important characteristics:
+- streaming does not affect execution
+- consumers can disconnect safely
+- event order is guaranteed
+- payloads are informational, not authoritative
 
-Observability exists to **explain what happened**, not to control what happens.
+Streaming exists to **explain what happened**, not to control what happens.
 
 ---
 
-## Positioning
+## 8. Positioning
 
-AgenWatch is not an agent framework.
+AgenWatch is **not** an agent framework.
 
-It is a **runtime enforcement layer** that can sit underneath:
+It is a **runtime enforcement layer** that can sit beneath:
 - LangChain
 - CrewAI
-- Custom orchestration systems
+- LangGraph
+- custom orchestration systems
 
-Think of AgenWatch as the **execution kernel**, not the application layer.
-
----
-
-## Non-Goals (By Design)
-
-AgenWatch does NOT aim to:
-- Provide domain-specific tools
-- Replace agent frameworks
-- Automatically compensate or rollback side effects
-- Optimize prompts or reasoning quality
-
-Those belong elsewhere.
+Those systems handle *what* an agent should do.  
+AgenWatch governs *whether* it is allowed to continue.
 
 ---
 
-## Current Status
+## 9. Non-Goals (By Design)
 
-- Version: v0.1.0
-- Guarantees: Budget, iteration, determinism, replay safety
-- Scope: Single-agent, single-process execution
-- Stability: Kernel semantics are stable; APIs are intentionally minimal
+AgenWatch does not attempt to:
+- provide domain-specific tools
+- replace agent frameworks
+- automatically roll back side effects
+- sandbox the operating system
+- optimize prompts or reasoning quality
+
+These concerns belong outside the kernel.
+
+---
+
+## 10. Current Scope & Status
+
+- Version: **v0.1.0**
+- Scope: single-agent, single-process execution
+- Guarantees:
+  - runtime budget enforcement
+  - iteration limits
+  - deterministic termination
+  - replay-safe inspection
+- Stability:
+  - kernel semantics are stable
+  - public API is minimal and intentionally frozen
 
 ---
 
 ## Closing Principle
 
-> *Agents fail in production not because they are dumb, but because they are ungoverned.*
+> *Agents fail in production not because they are unintelligent,  
+> but because they are ungoverned.*
 
 AgenWatch exists to make agent execution **bounded, inspectable, and enforceable**.
-
-
 
