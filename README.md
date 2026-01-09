@@ -59,7 +59,7 @@ pip install agenwatch
 ```
 ---
 
-## AgenWatch-Only Example (Correct & Working)
+## AgenWatch-Only Example
 
 This example shows **pure AgenWatch execution** with runtime enforcement.
 
@@ -114,7 +114,7 @@ This enforcement happens **synchronously inside the kernel**.
 
 ---
 
-## LangChain + AgenWatch Integration (Honest Example)
+## LangChain + AgenWatch Integration
 
 AgenWatch can be used **alongside** LangChain.
 
