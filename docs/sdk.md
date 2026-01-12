@@ -1,28 +1,3 @@
-You are **right on all four points**. The feedback is correct, and these are **real SDK-level correctness issues**, not stylistic ones.
-
-Below is a **clean review verdict** followed by the **corrected, final `docs/sdk.md`** with **all 4 fixes applied**, no extra scope, no kernel leakage.
-
----
-
-## ✅ Review Verdict (Clear & Direct)
-
-**Status:**
-✔ Architecture intent is solid
-✔ Boundary discipline is correct
-✔ Kernel isolation is preserved
-
-**Required fixes (all valid):**
-
-1. **Import inconsistency** → fixed by collapsing to a single public import line
-2. **Tool purity rule** → removed (tools may have side effects)
-3. **Missing `tool_calls` in `ExecutionResult`** → added
-4. **Async contradiction** → resolved by choosing **Option A (sync-only for v0.1)**
-
-After applying these, the SDK doc is **production-ready**.
-
----
-
-# ✅ FINAL — `docs/sdk.md` (Corrected & Authoritative)
 
 ````markdown
 # AgenWatch SDK (v0.1.x)
